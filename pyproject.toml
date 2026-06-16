@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "autonomous-workflow-redteam-sandbox"
+version = "0.1.0"
+description = "Synthetic red-team scenario runner for autonomous tool-using workflow agents."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Kartik Mishra" }]
+license = { text = "MIT" }
+keywords = ["ai-red-teaming", "agents", "prompt-injection", "tool-use", "workflow-automation", "python"]
+
+[project.scripts]
+workflow-redteam-sandbox = "workflow_redteam_sandbox.cli:main"
