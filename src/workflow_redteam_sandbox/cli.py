@@ -28,7 +28,7 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(result.to_dict(), indent=2))
         else:
             print(render_text(result))
-        return 0 if result.score >= 60 else 1
+        return 0 if result.status == "pass" else 1
     raise SystemExit(f"Unknown command: {args.command}")
 
 

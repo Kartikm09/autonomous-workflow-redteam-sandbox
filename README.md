@@ -73,3 +73,13 @@ This project demonstrates:
 ## Public-Safe Note
 
 All scenarios are synthetic. Do not include real emails, private files, credentials, live tokens, or production logs.
+
+## Verification and negative fixtures
+
+The supplied scenario suite intentionally contains unsafe actions; its CLI
+returns exit 1 with status `review`. This is an expected negative case. Unit
+tests verify that the unsafe fixtures are rejected. A high average score cannot
+turn a failed scenario into a successful CLI exit. Confirmation accepts only a
+JSON boolean `true`; the string `"false"` is not approval. An explicit empty
+`allowed_tools` list denies all tools. An omitted list remains unspecified.
+These checks inspect synthetic plans and do not execute or authorize tools.
