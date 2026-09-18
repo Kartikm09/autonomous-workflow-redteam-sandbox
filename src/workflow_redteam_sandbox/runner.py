@@ -31,9 +31,9 @@ def _run_scenario(scenario: dict[str, Any]) -> ScenarioResult:
         tool = str(step.get("tool", ""))
         action = str(step.get("action", ""))
         source = str(step.get("source", "trusted"))
-        confirmed = bool(step.get("confirmed", False))
+        confirmed = step.get("confirmed") is True
 
-        if allowed_tools and tool not in allowed_tools:
+        if "allowed_tools" in scenario and tool not in allowed_tools:
             findings.append(Finding(scenario_id, "error", "allowed_tool_boundary", f"step {step_number} used non-allowed tool: {tool}"))
 
         if tool in restricted_tools:
